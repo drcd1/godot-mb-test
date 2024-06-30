@@ -17,7 +17,7 @@ This project provides a custom script to compare a motion blur implementation wi
 
 ## Warnings
 The script has a few hardcoded variables:
-- We assume
+- We assume the motion blur is the first effect in the compositor
 - line 16: assumes the renderer is rendering to an object with path "../SubViewport"
 - line 21: assumes the animated scene is called "mbtest" and has an "AnimationPlayer" node.
 - line 22: assumes the animation to be played is called "Animation"
