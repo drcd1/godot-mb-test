@@ -1,0 +1,957 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6uclithid5ji"]
+
+[ext_resource type="PackedScene" uid="uid://5q8kj23ydgll" path="res://testscenes/mbtest.glb" id="1_qqnmi"]
+[ext_resource type="Script" path="res://motionblur/motion_blur.gd" id="2_6010a"]
+[ext_resource type="Script" path="res://anim_manager.gd" id="3_ec4vl"]
+[ext_resource type="Script" path="res://vp_camera.gd" id="4_3t3a4"]
+
+[sub_resource type="Environment" id="Environment_g1w52"]
+background_mode = 1
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+sdfgi_bounce_feedback = 1.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ynjhu"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_gf2kb"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = true
+needs_normal_roughness = false
+script = ExtResource("2_6010a")
+motion_blur_samples = 8
+motion_blur_intensity = 0.25
+motion_blur_center_fade = 0.0
+
+[sub_resource type="Compositor" id="Compositor_n2ldb"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_gf2kb")])
+
+[sub_resource type="Curve" id="Curve_o2qkh"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Test2" type="Node3D"]
+
+[node name="mbtest" parent="." instance=ExtResource("1_qqnmi")]
+
+[node name="Camera" parent="mbtest" index="1"]
+transform = Transform3D(-0.876871, 0.0309143, 0.479731, -1.37836e-07, 0.99793, -0.0643077, -0.480726, -0.0563896, -0.875056, 2.99479, 0.93047, -5.18854)
+
+[node name="Empty" parent="mbtest" index="4"]
+transform = Transform3D(0.64357, 0.145349, -0.751459, -0.0426373, 0.987086, 0.154409, 0.764199, -0.067333, 0.641457, 0.490191, 1.26621, -0.620019)
+
+[node name="Suzanne" parent="mbtest" index="5"]
+transform = Transform3D(-0.144706, 0.00703729, 0.142462, -0.0191674, 0.200139, -0.0293558, -0.141342, -0.0343457, -0.141872, 1.22884, 0.403646, -0.142844)
+
+[node name="Torus" parent="mbtest" index="6"]
+transform = Transform3D(-0.338842, 0.0388989, -0.119054, 0.0762489, 0.336486, -0.107072, 0.0993636, -0.12556, -0.323825, 0.173207, 1.60236, 1.11344)
+
+[node name="Cube_001" parent="mbtest" index="8"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.62592, 12.4988, -0.692433)
+
+[node name="Cube_003" parent="mbtest" index="9"]
+transform = Transform3D(0.102761, 0, 3.4957e-06, 0, 0.102761, 0, -3.4957e-06, 0, 0.102761, -0.390704, 12.5064, -0.692433)
+
+[node name="Cube_004" parent="mbtest" index="10"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.155488, 12.4988, -0.692433)
+
+[node name="Cube_005" parent="mbtest" index="11"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.087316, 12.4912, -0.692433)
+
+[node name="Cube_006" parent="mbtest" index="12"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102762, 0.352883, 12.4988, -0.692433)
+
+[node name="Cube_007" parent="mbtest" index="13"]
+transform = Transform3D(0.102761, 0, 4.039e-06, 0, 0.102761, 0, -4.03901e-06, 0, 0.102761, 0.588099, 12.5064, -0.692433)
+
+[node name="Cube_008" parent="mbtest" index="14"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.4988, -0.692433)
+
+[node name="Cube_009" parent="mbtest" index="15"]
+transform = Transform3D(0.102762, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.4912, -0.692433)
+
+[node name="Cube_010" parent="mbtest" index="16"]
+transform = Transform3D(0.102761, 0, -2.28874e-06, 0, 0.102761, 0, 2.28875e-06, 0, 0.102761, -0.633507, 12.2181, -0.692433)
+
+[node name="Cube_011" parent="mbtest" index="17"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 12.2257, -0.692433)
+
+[node name="Cube_012" parent="mbtest" index="18"]
+transform = Transform3D(0.102761, 0, -3.17947e-06, 0, 0.102761, 0, 3.17949e-06, 0, 0.102761, -0.163075, 12.2181, -0.692433)
+
+[node name="Cube_013" parent="mbtest" index="19"]
+transform = Transform3D(0.102761, 0, 3.2861e-06, 0, 0.102761, 0, -3.28611e-06, 0, 0.102761, 0.0797284, 12.2105, -0.692433)
+
+[node name="Cube_014" parent="mbtest" index="20"]
+transform = Transform3D(0.102761, 0, -3.49266e-07, 0, 0.102761, 0, 3.49265e-07, 0, 0.102761, 0.36047, 12.2105, -0.692433)
+
+[node name="Cube_015" parent="mbtest" index="21"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.595686, 12.2181, -0.692433)
+
+[node name="Cube_016" parent="mbtest" index="22"]
+transform = Transform3D(0.102761, 0, -4.53383e-07, 0, 0.102761, 0, 4.5338e-07, 0, 0.102761, 0.830902, 12.2105, -0.692433)
+
+[node name="Cube_017" parent="mbtest" index="23"]
+transform = Transform3D(0.102761, 0, -2.42613e-08, 0, 0.102761, 0, 2.42611e-08, 0, 0.102761, 1.07371, 12.2029, -0.692433)
+
+[node name="Cube_018" parent="mbtest" index="24"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.62592, 11.9601, -0.692433)
+
+[node name="Cube_019" parent="mbtest" index="25"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.390704, 11.9677, -0.692433)
+
+[node name="Cube_020" parent="mbtest" index="26"]
+transform = Transform3D(0.102762, 0, 0, 0, 0.102762, 0, 0, 0, 0.102761, -0.155488, 11.9601, -0.692433)
+
+[node name="Cube_021" parent="mbtest" index="27"]
+transform = Transform3D(0.102761, 0, 1.44085e-06, 0, 0.102761, 0, -1.44085e-06, 0, 0.102761, 0.087316, 11.9525, -0.692433)
+
+[node name="Cube_022" parent="mbtest" index="28"]
+transform = Transform3D(0.102761, 0, -2.43895e-06, 0, 0.102761, 0, 2.43894e-06, 0, 0.102761, 0.352883, 11.9601, -0.692433)
+
+[node name="Cube_023" parent="mbtest" index="29"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 11.9677, -0.692433)
+
+[node name="Cube_024" parent="mbtest" index="30"]
+transform = Transform3D(0.102761, 0, -2.11595e-06, 0, 0.102761, 0, 2.11595e-06, 0, 0.102761, 0.823315, 11.9601, -0.692433)
+
+[node name="Cube_025" parent="mbtest" index="31"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 11.9525, -0.692433)
+
+[node name="Cube_026" parent="mbtest" index="32"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 11.6793, -0.692433)
+
+[node name="Cube_027" parent="mbtest" index="33"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 11.6869, -0.692433)
+
+[node name="Cube_028" parent="mbtest" index="34"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 11.6793, -0.692433)
+
+[node name="Cube_029" parent="mbtest" index="35"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0797284, 11.6718, -0.692433)
+
+[node name="Cube_030" parent="mbtest" index="36"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.36047, 11.6718, -0.692433)
+
+[node name="Cube_031" parent="mbtest" index="37"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.595686, 11.6793, -0.692433)
+
+[node name="Cube_032" parent="mbtest" index="38"]
+transform = Transform3D(0.102761, 0, -2.62118e-06, 0, 0.102761, 0, 2.62118e-06, 0, 0.102761, 0.830902, 11.6718, -0.692433)
+
+[node name="Cube_033" parent="mbtest" index="39"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.07371, 11.6642, -0.692433)
+
+[node name="Cube_034" parent="mbtest" index="40"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 13.0375, -0.692433)
+
+[node name="Cube_035" parent="mbtest" index="41"]
+transform = Transform3D(0.102761, 0, -2.29634e-06, 0, 0.102761, 0, 2.29634e-06, 0, 0.102761, -0.398291, 13.0451, -0.692433)
+
+[node name="Cube_036" parent="mbtest" index="42"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 13.0375, -0.692433)
+
+[node name="Cube_037" parent="mbtest" index="43"]
+transform = Transform3D(0.102761, 0, 3.85621e-07, 0, 0.102761, 0, -3.85621e-07, 0, 0.102761, 0.0797284, 13.0299, -0.692433)
+
+[node name="Cube_038" parent="mbtest" index="44"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.345295, 13.0375, -0.692433)
+
+[node name="Cube_039" parent="mbtest" index="45"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.580511, 13.0451, -0.692433)
+
+[node name="Cube_040" parent="mbtest" index="46"]
+transform = Transform3D(0.102761, 0, -3.67196e-06, 0, 0.102761, 0, 3.67196e-06, 0, 0.102761, 0.815727, 13.0375, -0.692433)
+
+[node name="Cube_041" parent="mbtest" index="47"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.05853, 13.0299, -0.692433)
+
+[node name="Cube_042" parent="mbtest" index="48"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.641095, 12.7568, -0.692433)
+
+[node name="Cube_043" parent="mbtest" index="49"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.405879, 12.7644, -0.692433)
+
+[node name="Cube_044" parent="mbtest" index="50"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.170663, 12.7568, -0.692433)
+
+[node name="Cube_045" parent="mbtest" index="51"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0721408, 12.7492, -0.692433)
+
+[node name="Cube_046" parent="mbtest" index="52"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.7492, -0.692433)
+
+[node name="Cube_047" parent="mbtest" index="53"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.7568, -0.692433)
+
+[node name="Cube_048" parent="mbtest" index="54"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.7492, -0.692433)
+
+[node name="Cube_049" parent="mbtest" index="55"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.7416, -0.692433)
+
+[node name="Cube_050" parent="mbtest" index="56"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.62592, 12.4988, -0.426867)
+
+[node name="Cube_051" parent="mbtest" index="57"]
+transform = Transform3D(0.102762, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.390704, 12.5064, -0.426867)
+
+[node name="Cube_052" parent="mbtest" index="58"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.155488, 12.4988, -0.426867)
+
+[node name="Cube_053" parent="mbtest" index="59"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.087316, 12.4912, -0.426867)
+
+[node name="Cube_054" parent="mbtest" index="60"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.4988, -0.426867)
+
+[node name="Cube_055" parent="mbtest" index="61"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.5064, -0.426867)
+
+[node name="Cube_056" parent="mbtest" index="62"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.4988, -0.426867)
+
+[node name="Cube_057" parent="mbtest" index="63"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.4912, -0.426867)
+
+[node name="Cube_058" parent="mbtest" index="64"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 12.2181, -0.426867)
+
+[node name="Cube_059" parent="mbtest" index="65"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 12.2257, -0.426867)
+
+[node name="Cube_060" parent="mbtest" index="66"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 12.2181, -0.426867)
+
+[node name="Cube_061" parent="mbtest" index="67"]
+transform = Transform3D(0.102761, 0, 4.01269e-07, 0, 0.102761, 0, -4.01267e-07, 0, 0.102761, 0.0797284, 12.2105, -0.426867)
+
+[node name="Cube_062" parent="mbtest" index="68"]
+transform = Transform3D(0.102761, 0, -2.76972e-07, 0, 0.102761, 0, 2.76971e-07, 0, 0.102761, 0.36047, 12.2105, -0.426867)
+
+[node name="Cube_063" parent="mbtest" index="69"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.595686, 12.2181, -0.426867)
+
+[node name="Cube_064" parent="mbtest" index="70"]
+transform = Transform3D(0.102761, 0, -4.40476e-07, 0, 0.102761, 0, 4.40477e-07, 0, 0.102761, 0.830902, 12.2105, -0.426867)
+
+[node name="Cube_065" parent="mbtest" index="71"]
+transform = Transform3D(0.102761, 0, -3.94734e-07, 0, 0.102761, 0, 3.94734e-07, 0, 0.102761, 1.07371, 12.2029, -0.426867)
+
+[node name="Cube_066" parent="mbtest" index="72"]
+transform = Transform3D(0.102761, 0, -1.85582e-06, 0, 0.102761, 0, 1.85581e-06, 0, 0.102761, -0.62592, 11.9601, -0.426867)
+
+[node name="Cube_067" parent="mbtest" index="73"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.390704, 11.9677, -0.426867)
+
+[node name="Cube_068" parent="mbtest" index="74"]
+transform = Transform3D(0.102761, 0, -1.23174e-06, 0, 0.102761, 0, 1.23174e-06, 0, 0.102761, -0.155488, 11.9601, -0.426867)
+
+[node name="Cube_069" parent="mbtest" index="75"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.087316, 11.9525, -0.426867)
+
+[node name="Cube_070" parent="mbtest" index="76"]
+transform = Transform3D(0.102761, 0, -2.37653e-06, 0, 0.102762, 0, 2.37653e-06, 0, 0.102761, 0.352883, 11.9601, -0.426867)
+
+[node name="Cube_071" parent="mbtest" index="77"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102762, 0, 0, 0, 0.102761, 0.588099, 11.9677, -0.426867)
+
+[node name="Cube_072" parent="mbtest" index="78"]
+transform = Transform3D(0.102761, 0, -2.35445e-06, 0, 0.102761, 0, 2.35445e-06, 0, 0.102761, 0.823315, 11.9601, -0.426867)
+
+[node name="Cube_073" parent="mbtest" index="79"]
+transform = Transform3D(0.102761, 0, 1.60497e-06, 0, 0.102761, 0, -1.60498e-06, 0, 0.102761, 1.06612, 11.9525, -0.426867)
+
+[node name="Cube_074" parent="mbtest" index="80"]
+transform = Transform3D(0.102761, 0, 1.05701e-06, 0, 0.102761, 0, -1.05701e-06, 0, 0.102761, -0.633507, 11.6793, -0.426867)
+
+[node name="Cube_075" parent="mbtest" index="81"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 11.6869, -0.426867)
+
+[node name="Cube_076" parent="mbtest" index="82"]
+transform = Transform3D(0.102761, 0, -4.4817e-07, 0, 0.102761, 0, 4.48169e-07, 0, 0.102761, -0.163075, 11.6793, -0.426867)
+
+[node name="Cube_077" parent="mbtest" index="83"]
+transform = Transform3D(0.102761, 0, -1.71379e-06, 0, 0.102761, 0, 1.71379e-06, 0, 0.102761, 0.0797284, 11.6718, -0.426867)
+
+[node name="Cube_078" parent="mbtest" index="84"]
+transform = Transform3D(0.102761, 0, -1.57963e-06, 0, 0.102761, 0, 1.57962e-06, 0, 0.102761, 0.36047, 11.6718, -0.426867)
+
+[node name="Cube_079" parent="mbtest" index="85"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.595686, 11.6793, -0.426867)
+
+[node name="Cube_080" parent="mbtest" index="86"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.830902, 11.6718, -0.426867)
+
+[node name="Cube_081" parent="mbtest" index="87"]
+transform = Transform3D(0.102761, 0, -1.80978e-06, 0, 0.102761, 0, 1.80979e-06, 0, 0.102761, 1.07371, 11.6642, -0.426867)
+
+[node name="Cube_082" parent="mbtest" index="88"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 13.0375, -0.426867)
+
+[node name="Cube_083" parent="mbtest" index="89"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 13.0451, -0.426867)
+
+[node name="Cube_084" parent="mbtest" index="90"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 13.0375, -0.426867)
+
+[node name="Cube_085" parent="mbtest" index="91"]
+transform = Transform3D(0.102761, 0, -8.92577e-07, 0, 0.102761, 0, 8.92578e-07, 0, 0.102761, 0.0797284, 13.0299, -0.426867)
+
+[node name="Cube_086" parent="mbtest" index="92"]
+transform = Transform3D(0.102761, 0, -2.37128e-06, 0, 0.102761, 0, 2.37128e-06, 0, 0.102761, 0.345295, 13.0375, -0.426867)
+
+[node name="Cube_087" parent="mbtest" index="93"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.580511, 13.0451, -0.426867)
+
+[node name="Cube_088" parent="mbtest" index="94"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.815727, 13.0375, -0.426867)
+
+[node name="Cube_089" parent="mbtest" index="95"]
+transform = Transform3D(0.102761, 0, 2.05177e-06, 0, 0.102761, 0, -2.05177e-06, 0, 0.102761, 1.05853, 13.0299, -0.426867)
+
+[node name="Cube_090" parent="mbtest" index="96"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.641095, 12.7568, -0.426867)
+
+[node name="Cube_091" parent="mbtest" index="97"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.405879, 12.7644, -0.426867)
+
+[node name="Cube_092" parent="mbtest" index="98"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.170663, 12.7568, -0.426867)
+
+[node name="Cube_093" parent="mbtest" index="99"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0721408, 12.7492, -0.426867)
+
+[node name="Cube_094" parent="mbtest" index="100"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.7492, -0.426867)
+
+[node name="Cube_095" parent="mbtest" index="101"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.7568, -0.426867)
+
+[node name="Cube_096" parent="mbtest" index="102"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.7492, -0.426867)
+
+[node name="Cube_097" parent="mbtest" index="103"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.7416, -0.426867)
+
+[node name="Cube_098" parent="mbtest" index="104"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.62592, 12.4988, -0.146125)
+
+[node name="Cube_099" parent="mbtest" index="105"]
+transform = Transform3D(0.102761, 0, -3.07522e-06, 0, 0.102761, 0, 3.07521e-06, 0, 0.102761, -0.390704, 12.5064, -0.146125)
+
+[node name="Cube_100" parent="mbtest" index="106"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.155488, 12.4988, -0.146125)
+
+[node name="Cube_101" parent="mbtest" index="107"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.087316, 12.4912, -0.146125)
+
+[node name="Cube_102" parent="mbtest" index="108"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102762, 0.352883, 12.4988, -0.146125)
+
+[node name="Cube_103" parent="mbtest" index="109"]
+transform = Transform3D(0.102761, 0, 3.86633e-06, 0, 0.102761, 0, -3.86632e-06, 0, 0.102761, 0.588099, 12.5064, -0.146125)
+
+[node name="Cube_104" parent="mbtest" index="110"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.4988, -0.146125)
+
+[node name="Cube_105" parent="mbtest" index="111"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.4912, -0.146125)
+
+[node name="Cube_106" parent="mbtest" index="112"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 12.2181, -0.146125)
+
+[node name="Cube_107" parent="mbtest" index="113"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 12.2257, -0.146125)
+
+[node name="Cube_108" parent="mbtest" index="114"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 12.2181, -0.146125)
+
+[node name="Cube_109" parent="mbtest" index="115"]
+transform = Transform3D(0.102761, 0, -9.07459e-07, 0, 0.102761, 0, 9.07462e-07, 0, 0.102761, 0.0797284, 12.2105, -0.146125)
+
+[node name="Cube_110" parent="mbtest" index="116"]
+transform = Transform3D(0.102761, 0, -5.82813e-07, 0, 0.102761, 0, 5.82814e-07, 0, 0.102761, 0.36047, 12.2105, -0.146125)
+
+[node name="Cube_111" parent="mbtest" index="117"]
+transform = Transform3D(0.102761, 0, 3.10193e-06, 0, 0.102761, 0, -3.10193e-06, 0, 0.102761, 0.595686, 12.2181, -0.146125)
+
+[node name="Cube_112" parent="mbtest" index="118"]
+transform = Transform3D(0.102761, 0, -6.35234e-07, 0, 0.102761, 0, 6.35237e-07, 0, 0.102761, 0.830902, 12.2105, -0.146125)
+
+[node name="Cube_113" parent="mbtest" index="119"]
+transform = Transform3D(0.102761, 0, -3.6311e-07, 0, 0.102761, 0, 3.63111e-07, 0, 0.102761, 1.07371, 12.2029, -0.146125)
+
+[node name="Cube_114" parent="mbtest" index="120"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.62592, 11.9601, -0.146125)
+
+[node name="Cube_115" parent="mbtest" index="121"]
+transform = Transform3D(0.102761, 0, -1.70038e-06, 0, 0.102761, 0, 1.70037e-06, 0, 0.102761, -0.390704, 11.9677, -0.146125)
+
+[node name="Cube_116" parent="mbtest" index="122"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102762, -0.155488, 11.9601, -0.146125)
+
+[node name="Cube_117" parent="mbtest" index="123"]
+transform = Transform3D(0.102761, 0, -3.09667e-06, 0, 0.102761, 0, 3.09667e-06, 0, 0.102761, 0.087316, 11.9525, -0.146125)
+
+[node name="Cube_118" parent="mbtest" index="124"]
+transform = Transform3D(0.102761, 0, 1.62495e-08, 0, 0.102761, 0, -1.62495e-08, 0, 0.102761, 0.352883, 11.9601, -0.146125)
+
+[node name="Cube_119" parent="mbtest" index="125"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 11.9677, -0.146125)
+
+[node name="Cube_120" parent="mbtest" index="126"]
+transform = Transform3D(0.102762, 0, -1.15272e-07, 0, 0.102761, 0, 1.15272e-07, 0, 0.102761, 0.823315, 11.9601, -0.146125)
+
+[node name="Cube_121" parent="mbtest" index="127"]
+transform = Transform3D(0.102761, 0, 1.48683e-06, 0, 0.102761, 0, -1.48682e-06, 0, 0.102761, 1.06612, 11.9525, -0.146125)
+
+[node name="Cube_122" parent="mbtest" index="128"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 11.6793, -0.146125)
+
+[node name="Cube_123" parent="mbtest" index="129"]
+transform = Transform3D(0.102761, 0, 4.82869e-07, 0, 0.102761, 0, -4.82867e-07, 0, 0.102761, -0.398291, 11.6869, -0.146125)
+
+[node name="Cube_124" parent="mbtest" index="130"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 11.6793, -0.146125)
+
+[node name="Cube_125" parent="mbtest" index="131"]
+transform = Transform3D(0.102762, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0797284, 11.6718, -0.146125)
+
+[node name="Cube_126" parent="mbtest" index="132"]
+transform = Transform3D(0.102761, 0, -2.48157e-06, 0, 0.102761, 0, 2.48157e-06, 0, 0.102761, 0.36047, 11.6718, -0.146125)
+
+[node name="Cube_127" parent="mbtest" index="133"]
+transform = Transform3D(0.102761, 0, -7.25678e-07, 0, 0.102761, 0, 7.25678e-07, 0, 0.102761, 0.595686, 11.6793, -0.146125)
+
+[node name="Cube_128" parent="mbtest" index="134"]
+transform = Transform3D(0.102761, 0, -1.56413e-06, 0, 0.102761, 0, 1.56413e-06, 0, 0.102761, 0.830902, 11.6718, -0.146125)
+
+[node name="Cube_129" parent="mbtest" index="135"]
+transform = Transform3D(0.102761, 0, 7.67249e-08, 0, 0.102761, 0, -7.6725e-08, 0, 0.102761, 1.07371, 11.6642, -0.146125)
+
+[node name="Cube_130" parent="mbtest" index="136"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 13.0375, -0.146125)
+
+[node name="Cube_131" parent="mbtest" index="137"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 13.0451, -0.146125)
+
+[node name="Cube_132" parent="mbtest" index="138"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 13.0375, -0.146125)
+
+[node name="Cube_133" parent="mbtest" index="139"]
+transform = Transform3D(0.102761, 0, -2.51926e-07, 0, 0.102761, 0, 2.51927e-07, 0, 0.102761, 0.0797284, 13.0299, -0.146125)
+
+[node name="Cube_134" parent="mbtest" index="140"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.345295, 13.0375, -0.146125)
+
+[node name="Cube_135" parent="mbtest" index="141"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.580511, 13.0451, -0.146125)
+
+[node name="Cube_136" parent="mbtest" index="142"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.815727, 13.0375, -0.146125)
+
+[node name="Cube_137" parent="mbtest" index="143"]
+transform = Transform3D(0.102761, 0, 3.73255e-06, 0, 0.102761, 0, -3.73255e-06, 0, 0.102761, 1.05853, 13.0299, -0.146125)
+
+[node name="Cube_138" parent="mbtest" index="144"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.641095, 12.7568, -0.146125)
+
+[node name="Cube_139" parent="mbtest" index="145"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.405879, 12.7644, -0.146125)
+
+[node name="Cube_140" parent="mbtest" index="146"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.170663, 12.7568, -0.146125)
+
+[node name="Cube_141" parent="mbtest" index="147"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0721408, 12.7492, -0.146125)
+
+[node name="Cube_142" parent="mbtest" index="148"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.7492, -0.146125)
+
+[node name="Cube_143" parent="mbtest" index="149"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.7568, -0.146125)
+
+[node name="Cube_144" parent="mbtest" index="150"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.7492, -0.146125)
+
+[node name="Cube_145" parent="mbtest" index="151"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.7416, -0.146125)
+
+[node name="Cube_146" parent="mbtest" index="152"]
+transform = Transform3D(0.102761, 0, 7.39451e-07, 0, 0.102761, 0, -7.39455e-07, 0, 0.102761, -0.62592, 12.5064, 0.104266)
+
+[node name="Cube_147" parent="mbtest" index="153"]
+transform = Transform3D(0.102761, 0, -5.00337e-07, 0, 0.102761, 0, 5.0034e-07, 0, 0.102761, -0.390704, 12.514, 0.104266)
+
+[node name="Cube_148" parent="mbtest" index="154"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.155488, 12.5064, 0.104266)
+
+[node name="Cube_149" parent="mbtest" index="155"]
+transform = Transform3D(0.102761, 0, -1.54255e-06, 0, 0.102761, 0, 1.54255e-06, 0, 0.102761, 0.087316, 12.4988, 0.104266)
+
+[node name="Cube_150" parent="mbtest" index="156"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.5064, 0.104266)
+
+[node name="Cube_151" parent="mbtest" index="157"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.514, 0.104266)
+
+[node name="Cube_152" parent="mbtest" index="158"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.5064, 0.104266)
+
+[node name="Cube_153" parent="mbtest" index="159"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.4988, 0.104266)
+
+[node name="Cube_154" parent="mbtest" index="160"]
+transform = Transform3D(0.102761, 0, 2.20233e-06, 0, 0.102761, 0, -2.20233e-06, 0, 0.102761, -0.633507, 12.2257, 0.104266)
+
+[node name="Cube_155" parent="mbtest" index="161"]
+transform = Transform3D(0.102761, 0, -2.31377e-06, 0, 0.102761, 0, 2.31378e-06, 0, 0.102761, -0.398291, 12.2332, 0.104266)
+
+[node name="Cube_156" parent="mbtest" index="162"]
+transform = Transform3D(0.102761, 0, -6.62922e-07, 0, 0.102761, 0, 6.62924e-07, 0, 0.102761, -0.163075, 12.2257, 0.104266)
+
+[node name="Cube_157" parent="mbtest" index="163"]
+transform = Transform3D(0.102761, 0, 6.35923e-07, 0, 0.102761, 0, -6.35921e-07, 0, 0.102761, 0.0797284, 12.2181, 0.104266)
+
+[node name="Cube_158" parent="mbtest" index="164"]
+transform = Transform3D(0.102761, 0, 3.00005e-06, 0, 0.102761, 0, -3.00006e-06, 0, 0.102761, 0.36047, 12.2181, 0.104266)
+
+[node name="Cube_159" parent="mbtest" index="165"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.595686, 12.2257, 0.104266)
+
+[node name="Cube_160" parent="mbtest" index="166"]
+transform = Transform3D(0.102761, 0, -8.94754e-07, 0, 0.102761, 0, 8.94758e-07, 0, 0.102761, 0.830902, 12.2181, 0.104266)
+
+[node name="Cube_161" parent="mbtest" index="167"]
+transform = Transform3D(0.102761, 0, 2.99221e-06, 0, 0.102761, 0, -2.99221e-06, 0, 0.102761, 1.07371, 12.2105, 0.104266)
+
+[node name="Cube_162" parent="mbtest" index="168"]
+transform = Transform3D(0.102761, 0, -1.99567e-06, 0, 0.102761, 0, 1.99567e-06, 0, 0.102761, -0.62592, 11.9677, 0.104266)
+
+[node name="Cube_163" parent="mbtest" index="169"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.390704, 11.9753, 0.104266)
+
+[node name="Cube_164" parent="mbtest" index="170"]
+transform = Transform3D(0.102761, 0, -2.46934e-06, 0, 0.102761, 0, 2.46933e-06, 0, 0.102761, -0.155488, 11.9677, 0.104266)
+
+[node name="Cube_165" parent="mbtest" index="171"]
+transform = Transform3D(0.102761, 0, -3.13779e-06, 0, 0.102761, 0, 3.1378e-06, 0, 0.102761, 0.087316, 11.9601, 0.104266)
+
+[node name="Cube_166" parent="mbtest" index="172"]
+transform = Transform3D(0.102761, 0, 3.07642e-06, 0, 0.102761, 0, -3.07642e-06, 0, 0.102761, 0.352883, 11.9677, 0.104266)
+
+[node name="Cube_167" parent="mbtest" index="173"]
+transform = Transform3D(0.102761, 0, 2.62899e-06, 0, 0.102761, 0, -2.629e-06, 0, 0.102761, 0.588099, 11.9753, 0.104266)
+
+[node name="Cube_168" parent="mbtest" index="174"]
+transform = Transform3D(0.102761, 0, 3.21984e-06, 0, 0.102761, 0, -3.21983e-06, 0, 0.102761, 0.823315, 11.9677, 0.104266)
+
+[node name="Cube_169" parent="mbtest" index="175"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 11.9601, 0.104266)
+
+[node name="Cube_170" parent="mbtest" index="176"]
+transform = Transform3D(0.102761, 0, 1.94894e-07, 0, 0.102761, 0, -1.94892e-07, 0, 0.102761, -0.633507, 11.6869, 0.104266)
+
+[node name="Cube_171" parent="mbtest" index="177"]
+transform = Transform3D(0.102761, 0, -2.90988e-06, 0, 0.102761, 0, 2.90988e-06, 0, 0.102761, -0.398291, 11.6945, 0.104266)
+
+[node name="Cube_172" parent="mbtest" index="178"]
+transform = Transform3D(0.102761, 0, 5.4776e-07, 0, 0.102761, 0, -5.47757e-07, 0, 0.102761, -0.163075, 11.6869, 0.104266)
+
+[node name="Cube_173" parent="mbtest" index="179"]
+transform = Transform3D(0.102761, 0, -2.92921e-06, 0, 0.102761, 0, 2.92921e-06, 0, 0.102761, 0.0797284, 11.6793, 0.104266)
+
+[node name="Cube_174" parent="mbtest" index="180"]
+transform = Transform3D(0.102761, 0, 5.39876e-08, 0, 0.102761, 0, -5.39874e-08, 0, 0.102761, 0.36047, 11.6793, 0.104266)
+
+[node name="Cube_175" parent="mbtest" index="181"]
+transform = Transform3D(0.102761, 0, -9.86985e-07, 0, 0.102761, 0, 9.86989e-07, 0, 0.102761, 0.595686, 11.6869, 0.104266)
+
+[node name="Cube_176" parent="mbtest" index="182"]
+transform = Transform3D(0.102761, 0, -3.04879e-06, 0, 0.102761, 0, 3.04879e-06, 0, 0.102761, 0.830902, 11.6793, 0.104266)
+
+[node name="Cube_177" parent="mbtest" index="183"]
+transform = Transform3D(0.102761, 0, -2.57858e-06, 0, 0.102761, 0, 2.57857e-06, 0, 0.102761, 1.07371, 11.6718, 0.104266)
+
+[node name="Cube_178" parent="mbtest" index="184"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 13.0451, 0.104267)
+
+[node name="Cube_179" parent="mbtest" index="185"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 13.0527, 0.104267)
+
+[node name="Cube_180" parent="mbtest" index="186"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 13.0451, 0.104267)
+
+[node name="Cube_181" parent="mbtest" index="187"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0797284, 13.0375, 0.104267)
+
+[node name="Cube_182" parent="mbtest" index="188"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.345295, 13.0451, 0.104267)
+
+[node name="Cube_183" parent="mbtest" index="189"]
+transform = Transform3D(0.102761, 0, 4.04249e-06, 0, 0.102761, 0, -4.04248e-06, 0, 0.102761, 0.580511, 13.0527, 0.104267)
+
+[node name="Cube_184" parent="mbtest" index="190"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.815727, 13.0451, 0.104267)
+
+[node name="Cube_185" parent="mbtest" index="191"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.05853, 13.0375, 0.104267)
+
+[node name="Cube_186" parent="mbtest" index="192"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.641095, 12.7644, 0.104266)
+
+[node name="Cube_187" parent="mbtest" index="193"]
+transform = Transform3D(0.102761, 0, 3.46497e-06, 0, 0.102761, 0, -3.46499e-06, 0, 0.102761, -0.405879, 12.772, 0.104266)
+
+[node name="Cube_188" parent="mbtest" index="194"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.170663, 12.7644, 0.104266)
+
+[node name="Cube_189" parent="mbtest" index="195"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0721408, 12.7568, 0.104266)
+
+[node name="Cube_190" parent="mbtest" index="196"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.7568, 0.104266)
+
+[node name="Cube_191" parent="mbtest" index="197"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.7644, 0.104266)
+
+[node name="Cube_192" parent="mbtest" index="198"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.7568, 0.104266)
+
+[node name="Cube_193" parent="mbtest" index="199"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.7492, 0.104266)
+
+[node name="Cube_194" parent="mbtest" index="200"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.62592, 12.4988, 0.369833)
+
+[node name="Cube_195" parent="mbtest" index="201"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.390704, 12.5064, 0.369833)
+
+[node name="Cube_196" parent="mbtest" index="202"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.155488, 12.4988, 0.369833)
+
+[node name="Cube_197" parent="mbtest" index="203"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.087316, 12.4912, 0.369833)
+
+[node name="Cube_198" parent="mbtest" index="204"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.4988, 0.369833)
+
+[node name="Cube_199" parent="mbtest" index="205"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.5064, 0.369833)
+
+[node name="Cube_200" parent="mbtest" index="206"]
+transform = Transform3D(0.102761, 0, -2.48967e-06, 0, 0.102761, 0, 2.48966e-06, 0, 0.102761, 0.823315, 12.4988, 0.369833)
+
+[node name="Cube_201" parent="mbtest" index="207"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.4912, 0.369833)
+
+[node name="Cube_202" parent="mbtest" index="208"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 12.2181, 0.369833)
+
+[node name="Cube_203" parent="mbtest" index="209"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 12.2257, 0.369833)
+
+[node name="Cube_204" parent="mbtest" index="210"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 12.2181, 0.369833)
+
+[node name="Cube_205" parent="mbtest" index="211"]
+transform = Transform3D(0.102761, 0, 2.48069e-06, 0, 0.102761, 0, -2.48069e-06, 0, 0.102761, 0.0797284, 12.2105, 0.369833)
+
+[node name="Cube_206" parent="mbtest" index="212"]
+transform = Transform3D(0.102761, 0, 2.45435e-06, 0, 0.102761, 0, -2.45435e-06, 0, 0.102761, 0.36047, 12.2105, 0.369833)
+
+[node name="Cube_207" parent="mbtest" index="213"]
+transform = Transform3D(0.102761, 0, -3.95189e-06, 0, 0.102761, 0, 3.95187e-06, 0, 0.102761, 0.595686, 12.2181, 0.369833)
+
+[node name="Cube_208" parent="mbtest" index="214"]
+transform = Transform3D(0.102761, 0, 2.68934e-06, 0, 0.102761, 0, -2.68932e-06, 0, 0.102761, 0.830902, 12.2105, 0.369833)
+
+[node name="Cube_209" parent="mbtest" index="215"]
+transform = Transform3D(0.102761, 0, 3.06177e-06, 0, 0.102761, 0, -3.06178e-06, 0, 0.102761, 1.07371, 12.2029, 0.369833)
+
+[node name="Cube_210" parent="mbtest" index="216"]
+transform = Transform3D(0.102761, 0, -3.09354e-06, 0, 0.102761, 0, 3.09352e-06, 0, 0.102761, -0.62592, 11.9601, 0.369833)
+
+[node name="Cube_211" parent="mbtest" index="217"]
+transform = Transform3D(0.102761, 0, -3.0883e-06, 0, 0.102761, 0, 3.08831e-06, 0, 0.102761, -0.390704, 11.9677, 0.369833)
+
+[node name="Cube_212" parent="mbtest" index="218"]
+transform = Transform3D(0.102761, 0, -3.48318e-06, 0, 0.102761, 0, 3.48317e-06, 0, 0.102761, -0.155488, 11.9601, 0.369833)
+
+[node name="Cube_213" parent="mbtest" index="219"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.087316, 11.9525, 0.369833)
+
+[node name="Cube_214" parent="mbtest" index="220"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 11.9601, 0.369833)
+
+[node name="Cube_215" parent="mbtest" index="221"]
+transform = Transform3D(0.102761, 0, 3.21427e-06, 0, 0.102761, 0, -3.21426e-06, 0, 0.102761, 0.588099, 11.9677, 0.369833)
+
+[node name="Cube_216" parent="mbtest" index="222"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 11.9601, 0.369833)
+
+[node name="Cube_217" parent="mbtest" index="223"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 11.9525, 0.369833)
+
+[node name="Cube_218" parent="mbtest" index="224"]
+transform = Transform3D(0.102761, 0, -5.42148e-08, 0, 0.102761, 0, 5.42146e-08, 0, 0.102761, -0.633507, 11.6793, 0.369833)
+
+[node name="Cube_219" parent="mbtest" index="225"]
+transform = Transform3D(0.102761, 0, 8.68929e-07, 0, 0.102761, 0, -8.68929e-07, 0, 0.102761, -0.398291, 11.6869, 0.369833)
+
+[node name="Cube_220" parent="mbtest" index="226"]
+transform = Transform3D(0.102761, 0, -4.56904e-08, 0, 0.102761, 0, 4.56902e-08, 0, 0.102761, -0.163075, 11.6793, 0.369833)
+
+[node name="Cube_221" parent="mbtest" index="227"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0797284, 11.6718, 0.369833)
+
+[node name="Cube_222" parent="mbtest" index="228"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102762, 0.36047, 11.6718, 0.369833)
+
+[node name="Cube_223" parent="mbtest" index="229"]
+transform = Transform3D(0.102761, 0, -7.71456e-08, 0, 0.102761, 0, 7.71454e-08, 0, 0.102761, 0.595686, 11.6793, 0.369833)
+
+[node name="Cube_224" parent="mbtest" index="230"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.830902, 11.6718, 0.369833)
+
+[node name="Cube_225" parent="mbtest" index="231"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.07371, 11.6642, 0.369833)
+
+[node name="Cube_226" parent="mbtest" index="232"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 13.0375, 0.369833)
+
+[node name="Cube_227" parent="mbtest" index="233"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 13.0451, 0.369833)
+
+[node name="Cube_228" parent="mbtest" index="234"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 13.0375, 0.369833)
+
+[node name="Cube_229" parent="mbtest" index="235"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0797284, 13.0299, 0.369833)
+
+[node name="Cube_230" parent="mbtest" index="236"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.345295, 13.0375, 0.369833)
+
+[node name="Cube_231" parent="mbtest" index="237"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.580511, 13.0451, 0.369833)
+
+[node name="Cube_232" parent="mbtest" index="238"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.815727, 13.0375, 0.369833)
+
+[node name="Cube_233" parent="mbtest" index="239"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.05853, 13.0299, 0.369833)
+
+[node name="Cube_234" parent="mbtest" index="240"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.641095, 12.7568, 0.369833)
+
+[node name="Cube_235" parent="mbtest" index="241"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.405879, 12.7644, 0.369833)
+
+[node name="Cube_236" parent="mbtest" index="242"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.170663, 12.7568, 0.369833)
+
+[node name="Cube_237" parent="mbtest" index="243"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0721408, 12.7492, 0.369833)
+
+[node name="Cube_238" parent="mbtest" index="244"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.7492, 0.369833)
+
+[node name="Cube_239" parent="mbtest" index="245"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.7568, 0.369833)
+
+[node name="Cube_240" parent="mbtest" index="246"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.7492, 0.369833)
+
+[node name="Cube_241" parent="mbtest" index="247"]
+transform = Transform3D(0.102761, 0, -2.59709e-06, 0, 0.102761, 0, 2.59709e-06, 0, 0.102761, 1.06612, 12.7416, 0.369833)
+
+[node name="Cube_242" parent="mbtest" index="248"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.62592, 12.4988, 0.658162)
+
+[node name="Cube_243" parent="mbtest" index="249"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102762, -0.390704, 12.5064, 0.658162)
+
+[node name="Cube_244" parent="mbtest" index="250"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.155488, 12.4988, 0.658162)
+
+[node name="Cube_245" parent="mbtest" index="251"]
+transform = Transform3D(0.102761, 0, 4.95473e-07, 0, 0.102761, 0, -4.95472e-07, 0, 0.102761, 0.087316, 12.4912, 0.658162)
+
+[node name="Cube_246" parent="mbtest" index="252"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.4988, 0.658162)
+
+[node name="Cube_247" parent="mbtest" index="253"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.5064, 0.658162)
+
+[node name="Cube_248" parent="mbtest" index="254"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.4988, 0.658162)
+
+[node name="Cube_249" parent="mbtest" index="255"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102762, 0, 0, 0, 0.102761, 1.06612, 12.4912, 0.658162)
+
+[node name="Cube_250" parent="mbtest" index="256"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 12.2181, 0.658162)
+
+[node name="Cube_251" parent="mbtest" index="257"]
+transform = Transform3D(0.102761, 0, -3.30703e-06, 0, 0.102761, 0, 3.30703e-06, 0, 0.102761, -0.398291, 12.2257, 0.658162)
+
+[node name="Cube_252" parent="mbtest" index="258"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 12.2181, 0.658162)
+
+[node name="Cube_253" parent="mbtest" index="259"]
+transform = Transform3D(0.102761, 0, 2.3356e-06, 0, 0.102761, 0, -2.33559e-06, 0, 0.102761, 0.0797284, 12.2105, 0.658162)
+
+[node name="Cube_254" parent="mbtest" index="260"]
+transform = Transform3D(0.102761, 0, 2.4832e-06, 0, 0.102761, 0, -2.4832e-06, 0, 0.102761, 0.36047, 12.2105, 0.658162)
+
+[node name="Cube_255" parent="mbtest" index="261"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.595686, 12.2181, 0.658162)
+
+[node name="Cube_256" parent="mbtest" index="262"]
+transform = Transform3D(0.102761, 0, 2.4832e-06, 0, 0.102761, 0, -2.48321e-06, 0, 0.102761, 0.830902, 12.2105, 0.658162)
+
+[node name="Cube_257" parent="mbtest" index="263"]
+transform = Transform3D(0.102761, 0, -1.66355e-08, 0, 0.102761, 0, 1.66354e-08, 0, 0.102761, 1.07371, 12.2029, 0.658162)
+
+[node name="Cube_258" parent="mbtest" index="264"]
+transform = Transform3D(0.102761, 0, -1.92909e-06, 0, 0.102761, 0, 1.9291e-06, 0, 0.102761, -0.62592, 11.9601, 0.658162)
+
+[node name="Cube_259" parent="mbtest" index="265"]
+transform = Transform3D(0.102761, 0, -7.22913e-07, 0, 0.102761, 0, 7.22913e-07, 0, 0.102761, -0.390704, 11.9677, 0.658162)
+
+[node name="Cube_260" parent="mbtest" index="266"]
+transform = Transform3D(0.102761, 0, -1.79876e-06, 0, 0.102761, 0, 1.79875e-06, 0, 0.102761, -0.155488, 11.9601, 0.658162)
+
+[node name="Cube_261" parent="mbtest" index="267"]
+transform = Transform3D(0.102761, 0, 2.61457e-06, 0, 0.102761, 0, -2.61457e-06, 0, 0.102761, 0.087316, 11.9525, 0.658162)
+
+[node name="Cube_262" parent="mbtest" index="268"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 11.9601, 0.658162)
+
+[node name="Cube_263" parent="mbtest" index="269"]
+transform = Transform3D(0.102761, 0, 2.45348e-06, 0, 0.102761, 0, -2.45348e-06, 0, 0.102761, 0.588099, 11.9677, 0.658162)
+
+[node name="Cube_264" parent="mbtest" index="270"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 11.9601, 0.658162)
+
+[node name="Cube_265" parent="mbtest" index="271"]
+transform = Transform3D(0.102761, 0, 3.99498e-06, 0, 0.102761, 0, -3.99499e-06, 0, 0.102761, 1.06612, 11.9525, 0.658162)
+
+[node name="Cube_266" parent="mbtest" index="272"]
+transform = Transform3D(0.102761, 0, -1.58019e-06, 0, 0.102761, 0, 1.58019e-06, 0, 0.102761, -0.633507, 11.6793, 0.658162)
+
+[node name="Cube_267" parent="mbtest" index="273"]
+transform = Transform3D(0.102761, 0, -1.39322e-07, 0, 0.102761, 0, 1.39322e-07, 0, 0.102761, -0.398291, 11.6869, 0.658162)
+
+[node name="Cube_268" parent="mbtest" index="274"]
+transform = Transform3D(0.102761, 0, -6.92019e-07, 0, 0.102761, 0, 6.92019e-07, 0, 0.102761, -0.163075, 11.6793, 0.658162)
+
+[node name="Cube_269" parent="mbtest" index="275"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0797284, 11.6718, 0.658162)
+
+[node name="Cube_270" parent="mbtest" index="276"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.36047, 11.6718, 0.658162)
+
+[node name="Cube_271" parent="mbtest" index="277"]
+transform = Transform3D(0.102761, 0, 1.04112e-06, 0, 0.102761, 0, -1.04112e-06, 0, 0.102761, 0.595686, 11.6793, 0.658162)
+
+[node name="Cube_272" parent="mbtest" index="278"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.830902, 11.6718, 0.658162)
+
+[node name="Cube_273" parent="mbtest" index="279"]
+transform = Transform3D(0.102761, 0, 1.94008e-06, 0, 0.102761, 0, -1.94008e-06, 0, 0.102761, 1.07371, 11.6642, 0.658162)
+
+[node name="Cube_274" parent="mbtest" index="280"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.633507, 13.0375, 0.658163)
+
+[node name="Cube_275" parent="mbtest" index="281"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.398291, 13.0451, 0.658163)
+
+[node name="Cube_276" parent="mbtest" index="282"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.163075, 13.0375, 0.658163)
+
+[node name="Cube_277" parent="mbtest" index="283"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0797284, 13.0299, 0.658163)
+
+[node name="Cube_278" parent="mbtest" index="284"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.345295, 13.0375, 0.658163)
+
+[node name="Cube_279" parent="mbtest" index="285"]
+transform = Transform3D(0.102761, 0, 2.41728e-06, 0, 0.102761, 0, -2.41728e-06, 0, 0.102761, 0.580511, 13.0451, 0.658163)
+
+[node name="Cube_280" parent="mbtest" index="286"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.815727, 13.0375, 0.658163)
+
+[node name="Cube_281" parent="mbtest" index="287"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.05853, 13.0299, 0.658163)
+
+[node name="Cube_282" parent="mbtest" index="288"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.641095, 12.7568, 0.658162)
+
+[node name="Cube_283" parent="mbtest" index="289"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.405879, 12.7644, 0.658162)
+
+[node name="Cube_284" parent="mbtest" index="290"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, -0.170663, 12.7568, 0.658162)
+
+[node name="Cube_285" parent="mbtest" index="291"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.0721408, 12.7492, 0.658162)
+
+[node name="Cube_286" parent="mbtest" index="292"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.352883, 12.7492, 0.658162)
+
+[node name="Cube_287" parent="mbtest" index="293"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.588099, 12.7568, 0.658162)
+
+[node name="Cube_288" parent="mbtest" index="294"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 0.823315, 12.7492, 0.658162)
+
+[node name="Cube_289" parent="mbtest" index="295"]
+transform = Transform3D(0.102761, 0, 0, 0, 0.102761, 0, 0, 0, 0.102761, 1.06612, 12.7416, 0.658162)
+
+[node name="Sphere_001" parent="mbtest" index="296"]
+transform = Transform3D(0.0548592, 0, 0, 0, 0.0548592, 0, 0, 0, 0.0548592, -1.08395, 2.20155, -0.199579)
+
+[node name="Empty_001" parent="mbtest" index="297"]
+transform = Transform3D(-0.589155, -0.0214685, -0.807735, 0.0850783, 0.992442, -0.0884331, 0.803529, -0.120821, -0.582876, 3.01172, 0.92801, -5.21065)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8963, 0)
+light_energy = 3.101
+light_size = 0.1
+shadow_enabled = true
+shadow_blur = 1.606
+distance_fade_enabled = true
+omni_range = 10.8158
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g1w52")
+camera_attributes = SubResource("CameraAttributesPractical_ynjhu")
+compositor = SubResource("Compositor_n2ldb")
+
+[node name="AnimManager" type="Node" parent="." node_paths=PackedStringArray("env")]
+script = ExtResource("3_ec4vl")
+record_specific = true
+prev = 7.033
+next = 7.067
+steps = 50
+env = NodePath("../WorldEnvironment")
+exposure_curve = SubResource("Curve_o2qkh")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+use_hdr_2d = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" node_paths=PackedStringArray("target")]
+transform = Transform3D(-0.876871, 0.0309143, 0.479731, -1.37836e-07, 0.99793, -0.0643077, -0.480726, -0.0563896, -0.875056, 2.99479, 0.93047, -5.18854)
+fov = 22.8952
+script = ExtResource("4_3t3a4")
+target = NodePath("../../mbtest/Camera")
+
+[editable path="mbtest"]
