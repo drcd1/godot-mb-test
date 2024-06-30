@@ -936,12 +936,10 @@ compositor = SubResource("Compositor_n2ldb")
 
 [node name="AnimManager" type="Node" parent="." node_paths=PackedStringArray("env")]
 script = ExtResource("3_ec4vl")
-record_specific = true
 prev = 7.033
 next = 7.067
 steps = 50
 env = NodePath("../WorldEnvironment")
-shutter_open = Vector2(0, 1.5)
 exposure_curve = SubResource("Curve_o2qkh")
 
 [node name="SubViewport" type="SubViewport" parent="."]
